@@ -1,0 +1,88 @@
+import { Usuario } from '../entity/usuario.entity';
+
+export const TABELA_USUARIO: Usuario[] = [
+  {
+    idUsuario: 1,
+    nomeUsuario: 'João Silva',
+    email: 'joao.silva@email.com',
+    senha: '123456',
+    ativo: true,
+  },
+  {
+    idUsuario: 2,
+    nomeUsuario: 'Maria Souza',
+    email: 'maria.souza@email.com',
+    senha: 'abcdef',
+    ativo: true,
+  },
+  {
+    idUsuario: 3,
+    nomeUsuario: 'Carlos Pereira',
+    email: 'carlos.pereira@email.com',
+    senha: 'senha123',
+    ativo: false,
+  },
+  {
+    idUsuario: 4,
+    nomeUsuario: 'Ana Oliveira',
+    email: 'ana.oliveira@email.com',
+    senha: 'ana2024',
+    ativo: true,
+  },
+  {
+    idUsuario: 5,
+    nomeUsuario: 'Bruno Almeida',
+    email: 'bruno.almeida@email.com',
+    senha: 'bruno@123',
+    ativo: true,
+  },
+  {
+    idUsuario: 6,
+    nomeUsuario: 'Fernanda Lima',
+    email: 'fernanda.lima@email.com',
+    senha: 'fer123',
+    ativo: false,
+  },
+  {
+    idUsuario: 7,
+    nomeUsuario: 'Ricardo Santos',
+    email: 'ricardo.santos@email.com',
+    senha: 'rico789',
+    ativo: true,
+  },
+  {
+    idUsuario: 8,
+    nomeUsuario: 'Patrícia Gomes',
+    email: 'patricia.gomes@email.com',
+    senha: 'paty456',
+    ativo: true,
+  },
+  {
+    idUsuario: 9,
+    nomeUsuario: 'Lucas Rocha',
+    email: 'lucas.rocha@email.com',
+    senha: 'lucas321',
+    ativo: false,
+  },
+  {
+    idUsuario: 10,
+    nomeUsuario: 'Juliana Martins',
+    email: 'juliana.martins@email.com',
+    senha: 'ju7890',
+    ativo: true,
+  },
+  {
+    idUsuario: 11,
+    nomeUsuario: 'Raissa Santana da Silva',
+    email: 'raissa_santana@gmail.com',
+    senha: '123456',
+    ativo: true,
+  },
+  {
+    idUsuario: 12,
+    nomeUsuario: 'Diego Pires Gonçalves',
+    email: 'diego_gonçalves@gmail.com',
+    senha: '123456',
+    ativo: true,
+  },
+];

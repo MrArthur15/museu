@@ -9,7 +9,7 @@ export class ResponseBuilder<T> {
     builder.response.timestamp = new Date().toISOString();
     return builder;
   }
-  mensage(mensagem: string | null): this {
+  mensagem(mensagem: string | null): this {
     this.response.mensagem = mensagem;
     return this;
   }
@@ -19,6 +19,10 @@ export class ResponseBuilder<T> {
   }
   path(path: string | null): this {
     this.response.path = path;
+    return this;
+  }
+  metodo(metodo: string): this {
+    this.response.metodo = metodo;
     return this;
   }
   dados(dados: T | T[] | null): this {

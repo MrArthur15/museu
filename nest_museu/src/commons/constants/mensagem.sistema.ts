@@ -4,6 +4,7 @@ export enum MENSAGEM_SISTEMA {
   ENTIDADE_ALTERADA = 'ENTIDADE_ALTERADA',
   ENTIDADE_EXCLUIDA = 'ENTIDADE_EXCLUIDA',
   ENTIDADE_LOCALIZADA = 'ENTIDADE_LOCALIZADA',
+  ENTIDADE_LISTAGEM = 'ENTIDADE_LISTAGEM',
 
   EMAIL_CADASTRADO = 'EMAIL_CADASTRADO',
 }
@@ -20,6 +21,7 @@ const MENSAGEM_GENERICA: MensagemGenericas = {
   [MENSAGEM_SISTEMA.ENTIDADE_ALTERADA]: (entidade: string) => `${entidade} foi alterada no sistema.`,
   [MENSAGEM_SISTEMA.ENTIDADE_EXCLUIDA]: (entidade: string) => `${entidade} foi excluida no sistema.`,
   [MENSAGEM_SISTEMA.ENTIDADE_LOCALIZADA]: (entidade: string) => `${entidade} foi localizada no sistema.`,
+  [MENSAGEM_SISTEMA.ENTIDADE_LISTAGEM]: (entidade: string) => `${entidade} foi processada no sistema.`,
   [MENSAGEM_SISTEMA.EMAIL_CADASTRADO]: (entidade: string) =>
     `O endereço de e-mail para ${entidade} já existe no sistema.`,
 };

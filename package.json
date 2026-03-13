@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "@nestjs/config": "^4.0.2",
-    "config": "^4.0.0"
+    "@nestjs/swagger": "^11.2.6",
+    "config": "^4.0.0",
+    "swagger-ui-express": "^5.0.1"
   },
   "scripts": {
     "lint": "eslint .",

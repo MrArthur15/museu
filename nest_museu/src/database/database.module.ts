@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService): TypeOrmModuleOptions => ({
@@ -14,8 +16,9 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
         username: config.getOrThrow<string>('DB_USER'),
         //password: config.getOrThrow<string>('DB_PASS'),
         database: config.getOrThrow<string>('DB_NAME'),
-        entities: [__dirname + '/../**/*.entity{.ts, .js}'],
-        synchronize: false,
+        //entities: [__dirname + '/../**/*.entity{.ts, .js}'],
+        autoLoadEntities: true,
+        synchronize: true,
         logging: ['query', 'error'],
         namingStrategy: new SnakeNamingStrategy(),
       }),

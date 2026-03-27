@@ -51,8 +51,8 @@ export class UsuarioController {
   }
   @Get(USUARIO.ROTA.ID)
   @ApiGetDoc(USUARIO.OPERACAO.PORID, UsuarioRequest, UsuarioResponse)
-  porId(@Param('id') id: number, @Req() req: Request) {
-    const response = this.usuarioService.porId(id);
+  async porId(@Param('id') id: number, @Req() req: Request): Promise<ApiResponse<UsuarioResponse>> {
+    const response = await this.usuarioService.porId(id);
     return ResponseBuilder.status<UsuarioResponse>(HttpStatus.OK)
       .mensagem(USUARIO.MENSAGEM.ENTIDADE_LOCALIZADA)
       .path(req.path)
@@ -62,8 +62,8 @@ export class UsuarioController {
   }
   @Post()
   @ApiPostDoc(USUARIO.OPERACAO.SALVAR, UsuarioRequest, UsuarioResponse)
-  salvar(@Body() usuarioRequest: UsuarioRequest, @Req() req: Request) {
-    const response = this.usuarioService.salvar(usuarioRequest);
+  async salvar(@Body() usuarioRequest: UsuarioRequest, @Req() req: Request): Promise<ApiResponse<UsuarioResponse>> {
+    const response = await this.usuarioService.salvar(usuarioRequest);
     return ResponseBuilder.status<UsuarioResponse>(HttpStatus.OK)
       .mensagem(USUARIO.MENSAGEM.ENTIDADE_CADASTRADA)
       .path(req.path)
@@ -73,8 +73,13 @@ export class UsuarioController {
   }
   @Put(USUARIO.ROTA.ID)
   @ApiPutDoc(USUARIO.OPERACAO.ATUALIZAR, UsuarioRequest, UsuarioResponse)
-  atualizar(@Param('id') id: number, @Body() usuarioRequest: UsuarioRequest, @Req() req: Request) {
-    const response = this.usuarioService.atualizar(id, usuarioRequest);
+  async atualizar(
+    @Param('id') id: number,
+    @Body() usuarioRequest: UsuarioRequest,
+    @Req() req: Request,
+  ): Promise<ApiResponse<UsuarioResponse>> {
+    const response = await this.usuarioService.atualizar(id, usuarioRequest);
+
     return ResponseBuilder.status<UsuarioResponse>(HttpStatus.OK)
       .mensagem(USUARIO.MENSAGEM.ENTIDADE_ALTERADA)
       .path(req.path)
@@ -84,7 +89,8 @@ export class UsuarioController {
   }
   @Delete(USUARIO.ROTA.ID)
   @ApiDeleteDoc(USUARIO.OPERACAO.DELETAR)
-  deletar(@Param('id') id: number, @Req() req: Request) {
+  async deletar(@Param('id') id: number, @Req() req: Request) {
+    await this.usuarioService.apagar(id);
     return ResponseBuilder.status<UsuarioResponse>(HttpStatus.OK)
       .mensagem(USUARIO.MENSAGEM.ENTIDADE_EXCLUIDA)
       .path(req.path)
